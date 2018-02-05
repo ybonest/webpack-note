@@ -1,7 +1,7 @@
 #### 实例四 引入loader和html-webpack-plugin
 + [实例链接](https://github.com/ybonest/webpack-note/tree/master/webpack/example4)
 
-本例共引用了webpack的插件和loader
+**本例共引用了webpack的插件和loader**
 
 1. 使用webpack的插件(Plugins)配置
 此例引入`html-webpack-plugin`插件
@@ -28,11 +28,11 @@ module.exports = {
 ```
 
 2. 使用webpack的Loader
-loader 用于对模块的源代码进行转换。loader 可以使你在 import 或"加载"模块时预处理文件。
-loader 可以将文件从不同的语言（如 TypeScript）转换为 JavaScript，或将内联图像转换为 data URL。
-loader 甚至允许你直接在 JavaScript 模块中 import CSS文件！
+  + loader 用于对模块的源代码进行转换。loader 可以使你在 import 或"加载"模块时预处理文件。
+  + loader 可以将文件从不同的语言（如 TypeScript）转换为 JavaScript，或将内联图像转换为 data URL。
+  + loader 甚至允许你直接在 JavaScript 模块中 import CSS文件
 
-本例中引入了处理css/scss/less以及引入图片时的loader
+**本例中引入了处理css/scss/less以及引入图片时的loader**
 1. 转换css文件,css文件依赖`style-loader`和`css-loader`两个loader
   + 创建css样式文件，并在要打包的js文件中引入-->`import './css/a.css'`
   + 安装style-loader ---> `npm i style-loader -D`
@@ -121,8 +121,8 @@ loader 甚至允许你直接在 JavaScript 模块中 import CSS文件！
   ```
 
 4. 处理css路径问题
-此处主要引入url-loader和file-loader
-具体配置如下
+  + 此处主要引入url-loader和file-loader
+  + 具体配置如下
 
 ```
 module.exports = {
