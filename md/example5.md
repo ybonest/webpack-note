@@ -1,4 +1,4 @@
-#### 实例五 使用babel处理JS高级语法
+#### 使用babel处理JS高级语法
 + [实例链接](https://github.com/ybonest/webpack-note/tree/master/webpack/example5)
 
 本例是引入了babel，babel是用来处理高级JS语法
@@ -56,4 +56,19 @@ class Person {
   static info = { country: 'China' }
 }
 console.log(Person.info);
+```
+
+#### 禁用webpack的严格模式
++ webpack中使用babel编译JS时默认以严格模式编译，使用`babel-plugin-transform-remove-strict-mode`插件可以禁用严格模式
+
+插件github地址[https://github.com/genify/babel-plugin-transform-remove-strict-mode](https://github.com/genify/babel-plugin-transform-remove-strict-mode)
+
++ 使用方式
+1. npm install babel-plugin-transform-remove-strict-mode -D
+2. 在`.babelrc`文件中加入配置
+
+```
+{
+  "plugins": ["transform-remove-strict-mode"]
+}
 ```
