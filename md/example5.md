@@ -1,4 +1,4 @@
-### 实例五 使用babel处理JS高级语法
+#### 实例五 使用babel处理JS高级语法
 + [实例链接](https://github.com/ybonest/webpack-note/tree/master/webpack/example5)
 
 本例是引入了babel，babel是用来处理高级JS语法

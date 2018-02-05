@@ -1,4 +1,4 @@
-### 实例三 webpack-dev-server插件使用
+#### 实例三 webpack-dev-server插件使用
 + [实例链接](https://github.com/ybonest/webpack-note/tree/master/webpack/example3)
 
 实例二中虽然引入了webpack.config.js配置，并且在配置中引入了一个入口和一个出口，webpack可以根据这个进行js的打包和编译工作，但是仅仅这样还远远不够，因为每次修改相关文件后，我们需要重新执行webpack命令进行编译，所以实例三中引入了webpack-dev-server,它启动了一个使用express的Http服务器，这个Http服务器和client使用了websocket通讯协议，原始文件作出改动后，webpack-dev-server会实时的编译
