@@ -1,4 +1,4 @@
-### 实例一
+### 实例一 webpack全局安装使用
 本例只是webpack基础用法，使用命令转换index.js文件
 + index.js代码展示
 
@@ -17,7 +17,7 @@ $(function(){
 + 执行webpack ./src/index.js ./dist/bundle.js
 + 执行成功后将在dist目录下生产bundle.js文件，该js文件综合了jquery和index.js
 
-### 实例二
+### 实例二 使用webpack.config.js配置文件
 本例是实例一的基础上增加webpack.config.js文件配置，在webpack.config.js文件中配置了入口文件和出口文件，这样就可以只用在命令行输入`webpack`命令，生成对应的文件。
 
 + webpack.config.js配置
