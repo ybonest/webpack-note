@@ -1,4 +1,4 @@
-<img src="./media/cssbg.png" width="380" alt="">
+<img src="./media/bgcss.jpg" width="380" alt="">
 
 # webpack笔记
 
