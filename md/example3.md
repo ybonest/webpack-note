@@ -6,6 +6,7 @@
 当然值得注意的是，webpack-dev-server实时编译的文件并没有输出到目标文件夹，也就是webpack.config.js的output配置，实际上经过webpack-dev-server实时编译的文件存在了内存中（有关webpack-dev-server详细用法后续再详细记录）
 
 本例中使用了webpack-dev-server工具，并且使用webpack的局部安装(webpack-dev-server工具,需要依赖于项目本地安装webpack，否则会报错)
++ 以下是详细使用步骤
 1. npm i webpack -D   将webpack局部安装，-D代表下载的是是开发依赖，安装后依赖会添加到package.json文件中的devDependencies配置中，
 devDependencies代表开发依赖
 2. 安装webpack-dev-server，运行命令`npm i webpack-dev-server -D`
