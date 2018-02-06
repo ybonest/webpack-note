@@ -30,7 +30,7 @@ webpack的四个核心概念
   ```
 
 + 对象语法
-```
+```javascript
 const config = {
   entry:{
     app:'./src/app.js',
