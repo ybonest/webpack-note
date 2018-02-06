@@ -21,16 +21,28 @@ module.exports = {
       {test:/\.scss$/,use:['style-loader','css-loader','sass-loader']},
       {test:/\.less$/,use:['style-loader','css-loader','less-loader']},
       //因为此处index以及bundle.js都是托管到内存中的，所以css加载图片时需要配置此项，否则npm run dev启动报错
-      // {test:/\.jpg|png|gif|bmp$/,use:'url-loader'}  
-      //默认情况下使用url-loader将把图片转为base64格式的图片，如果不想改变图片格式，可以下载file-loader，
-      //增加limit限制,当limit限制小于图片大小时(右键图片，属性，查看图片大小---注意：图片大小指的是字节数)，
-      //图片会以原本格式展现
-      // {test:/\.jpg|png|gif|bmp$/,use:'url-loader?limit=5948'}  
-      //经过以上两步后，图片正常显示，并且保持了原本格式，但是图片名称被改成了hash值，如果想保持图片原有名称
-      //可以增加name限制 ---name=[name].[ext]代表原有的图片名称
-      // {test:/\.jpg|png|gif|bmp$/,use:'url-loader?limit=5948&name=[name].[ext]'}
-      //同时你也可以以hash值+原本名字配合使用 
-      {test:/\.jpg|png|gif|bmp$/,use:'url-loader?limit=5948&name=[hash:8]-[name].[ext]'}
+      /**
+       * 1. 配置url-loader处理css中img的路径问题，此时img被编译成了base64位格式传到页面
+       * {test:/\.jpg|png|gif|bmp$/,use:'url-loader'}
+       */
+
+      /**
+       * 2. 默认情况下使用url-loader将把图片转为base64格式的图片，如果不想改变图片格式，可以下载file-loader，
+       * 然后增加limit限制,当limit限制小于图片大小时(右键图片，属性，查看图片大小---注意：图片大小指的是字节数)，
+       * 图片会以原本格式展现，如下
+       */
+      {test:/\.jpg|png|gif|bmp$/,use:'url-loader?limit=5948'}  
+
+      /**
+       * 3. 经过以上两步后，图片正常显示，并且保持了原本格式，但是图片名称被改成了hash值，如果想保持图片原有名称
+       * 可以增加name限制 ---name=[name].[ext]代表原有的图片名称:
+       * {test:/\.jpg|png|gif|bmp$/,use:'url-loader?limit=5948&name=[name].[ext]'}
+       */
+
+      /**
+       * 4. 同时你也可以以hash值+原本名字配合使用  
+       * {test:/\.jpg|png|gif|bmp$/,use:'url-loader?limit=5948&name=[hash:8]-[name].[ext]'}
+       */
     ]
   }
 }

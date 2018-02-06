@@ -100,11 +100,11 @@
   + 使用步骤
     - 首先安装，执行命令：`npm i url-loader file-loader -D`
     - 在webpack.config.js中配置rules
-    - url-loader会将文件编译为base64的编码
-    - 通过url-loader和file-loader后文件会以hash编码重新命名，我们重新用`name`重新指定文件名称,配置如下
+    - url-loader会将文件编译为base64的编码,若不想文件被编译成base64格式，可以配合file-loader，并指定`limit`（limit的值小于文件大小后，文件将以原有格式展现）
+    - 通过url-loader和file-loader后文件会以hash编码为文件命名，我们重新用`name`重新指定文件名称,配置如下
       `{test:/\.jpg|png|gif|bmp$/,use:'url-loader?limit=5948&name=[name].[ext]'}`
   
-具体配置如下
+webpack.config.js代码部分具体配置代码部分
 
 ```
 module.exports = {
@@ -125,17 +125,28 @@ module.exports = {
       
       // {test:/\.jpg|png|gif|bmp$/,use:'url-loader'}  
 
-      //默认情况下使用url-loader将把图片转为base64格式的图片，如果不想改变图片格式，可以下载file-loader，
-      //增加limit限制,当limit限制小于图片大小时(右键图片，属性，查看图片大小---注意：图片大小指的是字节数)，
-      //图片会以原本格式展现
-      // {test:/\.jpg|png|gif|bmp$/,use:'url-loader?limit=5948'}  
+      /**
+       * 1. 配置url-loader处理css中img的路径问题，此时img被编译成了base64位格式传到页面
+       * {test:/\.jpg|png|gif|bmp$/,use:'url-loader'}
+       */
 
-      //经过以上两步后，图片正常显示，并且保持了原本格式，但是图片名称被改成了hash值，如果想保持图片原有名称
-      //可以增加name限制 ---name=[name].[ext]代表原有的图片名称
-      // {test:/\.jpg|png|gif|bmp$/,use:'url-loader?limit=5948&name=[name].[ext]'}
+      /**
+       * 2. 默认情况下使用url-loader将把图片转为base64格式的图片，如果不想改变图片格式，可以下载file-loader，
+       * 然后增加limit限制,当limit限制小于图片大小时(右键图片，属性，查看图片大小---注意：图片大小指的是字节数)，
+       * 图片会以原本格式展现，如下
+       */
+      {test:/\.jpg|png|gif|bmp$/,use:'url-loader?limit=5948'}  
 
-      //同时你也可以以hash值+原本名字配合使用 
-      {test:/\.jpg|png|gif|bmp$/,use:'url-loader?limit=5948&name=[hash:8]-[name].[ext]'}
+      /**
+       * 3. 经过以上两步后，图片正常显示，并且保持了原本格式，但是图片名称被改成了hash值，如果想保持图片原有名称
+       * 可以增加name限制 ---name=[name].[ext]代表原有的图片名称:
+       * {test:/\.jpg|png|gif|bmp$/,use:'url-loader?limit=5948&name=[name].[ext]'}
+       */
+
+      /**
+       * 4. 同时你也可以以hash值+原本名字配合使用  
+       * {test:/\.jpg|png|gif|bmp$/,use:'url-loader?limit=5948&name=[hash:8]-[name].[ext]'}
+       */
     ]
   }
 }

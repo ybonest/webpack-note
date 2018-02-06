@@ -2,7 +2,8 @@
 
 > 更新日期：{docsify-updated}
 
-```
-github地址：https://github.com/ybonest/webpack-note.git
-```
+
+github地址：[https://github.com/ybonest/webpack-note.git](https://github.com/ybonest/webpack-note.git)
+webpack官网地址:[https://webpack.js.org/](https://webpack.js.org/)
+
 
