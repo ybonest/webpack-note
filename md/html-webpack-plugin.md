@@ -15,7 +15,7 @@
 + 增加配置将插件挂载到webpack中
 
 具体配置如下：
-```
+```javascript
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 

@@ -13,14 +13,14 @@ webpack的四个核心概念
 入口起点指示webpack应该要使用哪个模块，来作为构建其内部依赖图的开始。
 + webpack.config.js配置
   - 简写
-  ```
+  ```javascript
   module.exports = {
     entry:'./path/to/my/entry/file.js'
   }
   ```
 
   - 正常写
-  ```
+  ```javascript
   const config = {
     entry:{
       main:'./path/to/my/entry/file.js'
@@ -40,7 +40,7 @@ const config = {
 ```
 
 + 多页面应用程序
-```
+```javascript
 const config = {
   entry:{
     pageOne:'./src/pageOne/index.js',
@@ -54,7 +54,7 @@ const config = {
 output属性告诉webpack在哪里输出它所创建的bundles,以及如何明明这些文件
 + webpack.config.js
 
-```
+```javascript
 const path = require('path');
 
 module.exports = {
@@ -67,7 +67,7 @@ module.exports = {
 ```
 
 + 多个入口起点
-```
+```javascript
 module.exports = {
   entry:{
     app:'./src/app.js',
@@ -90,7 +90,7 @@ loader让webpack能够去处理那些非JavaScript文件
 
 + webpack.config.js配置
 
-```
+```javascript
 const path = require('path');
 
 const config = {
@@ -115,7 +115,7 @@ loader被用于转换某些类型的模块，而插件则可以用于执行范�
   - 将插件添加到plugins数组中
 + webpack.config.js配置
 
-```
+```javascript
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack);//访问内置插件
 const path = require('path');

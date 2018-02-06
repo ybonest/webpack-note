@@ -5,7 +5,7 @@
 
 + webpack.config.js配置
 
-```
+```javascript
 const path = require('path'); //此处引用的是node的内置模块
 
 module.exports = {
@@ -19,7 +19,7 @@ module.exports = {
 
 + index.js文件
 
-```
+```javascript
 import $ from 'jquery';
 
 $(function(){

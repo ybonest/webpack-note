@@ -10,7 +10,7 @@ babel配置方式
   - `npm i babel-preset-env babel-preset-stage-0 -D`
 + 3.在module中的rules添加配置:`{ test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ }`从而排除node_modules，以防打包时将node_modules中的内容打包进去
 + 4.根目录添加.babelrc的babel配置文件，里面配置了babel用到到的语法和插件，注意，这个文件中，必须符合JSON规范，因此，不能使用单引号和注释
-```
+```javascript
 {
   "presets": ["env", "stage-0"],
   "plugins": ["transform-runtime"]
@@ -20,7 +20,7 @@ babel配置方式
 代码展示
 + webpack.config.js配置
 
-```
+```javascript
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -46,7 +46,7 @@ module.exports = {
 ```
 
 + index.js
-```
+```javascript
 import $ from 'jquery';
 $(function () {
   $('li:odd').css('background', 'red');
@@ -67,7 +67,7 @@ console.log(Person.info);
 1. npm install babel-plugin-transform-remove-strict-mode -D
 2. 在`.babelrc`文件中加入配置
 
-```
+```javascript
 {
   "plugins": ["transform-remove-strict-mode"]
 }

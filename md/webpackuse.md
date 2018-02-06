@@ -4,7 +4,7 @@
 本例只是webpack基础用法，使用命令转换index.js文件
 + index.js代码展示
 
-```
+```javascript
 import $ from 'jquery'
 $(function(){
   $('li:even').css('background','red');
