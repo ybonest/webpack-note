@@ -11,7 +11,7 @@
   + 安装css-loader --->   `npm i css-loader -D`
   + 在webpack.config.js配置文件中的module节点中增加如下规则
 
-  ```
+  ```javascript
   module.exports = {
     entry:path.join(__dirname,'./src/index.js'),
     output:{
@@ -40,8 +40,8 @@
     - sass-loader 执行命令 `npm i sass-loader -D`
     - node-sass 执行命令 `npm i node-sass -D`
   + 在webpack.config.js配置文件中的module节点中增加如下规则
-  
-  ```
+
+  ```javascript
   module.exports = {
     entry:path.join(__dirname,'./src/index.js'),
     output:{
@@ -71,7 +71,7 @@
     - less 执行命令 `npm i less -D`
   + 在webpack.config.js配置文件中的module节点中增加如下规则
 
-  ```
+  ```javascript
   module.exports = {
     entry:path.join(__dirname,'./src/index.js'),
     output:{
@@ -103,10 +103,10 @@
     - url-loader会将文件编译为base64的编码,若不想文件被编译成base64格式，可以配合file-loader，并指定`limit`（limit的值小于文件大小后，文件将以原有格式展现）
     - 通过url-loader和file-loader后文件会以hash编码为文件命名，我们重新用`name`重新指定文件名称,配置如下
       `{test:/\.jpg|png|gif|bmp$/,use:'url-loader?limit=5948&name=[name].[ext]'}`
-  
+
 webpack.config.js代码部分具体配置代码部分
 
-```
+```javascript
 module.exports = {
   entry:path.join(__dirname,'./src/index.js'),
   output:{
@@ -155,7 +155,7 @@ module.exports = {
 实例代码块展示以及[链接](https://github.com/ybonest/webpack-note/tree/master/webpack/example4)
 + package.json中的开发依赖
 
-```
+```javascript
 "devDependencies": {
   "url-loader": "^0.6.2",
   "css-loader": "^0.28.9",
@@ -173,7 +173,7 @@ module.exports = {
 
 + webpack.config.js配置
 
-```
+```javascript
 const path = require('path');
 
 //html-webpack-plugin插件的作用就是将指定的html文件复制一份托管到内存中
@@ -214,7 +214,7 @@ module.exports = {
 
 + index.js
 
-```
+```javascript
 import $ from 'jquery';
 import './css/a.css';  //引入css
 import './css/b.scss';  //引入scss
@@ -225,3 +225,4 @@ $(function(){
   $('li:odd').css('background','yellow');
 })
 ```
+
