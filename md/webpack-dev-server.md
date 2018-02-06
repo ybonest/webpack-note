@@ -1,4 +1,4 @@
-#### 实例三 webpack-dev-server插件使用
+#### webpack-dev-server插件使用
 + [实例链接](https://github.com/ybonest/webpack-note/tree/master/webpack/example3)
 
 + webpack-dev-server是一个基于nodejs express的服务器
@@ -64,7 +64,7 @@ $(function(){
 },
 ```
 
-#### 实例六 配置webpack-dev-server启动方式
+#### 配置webpack-dev-server启动方式
 + [实例链接](https://github.com/ybonest/webpack-note/tree/master/webpack/example6)
 
 本例主要介绍在package.json文件中配置webpack-dev-server启动方式,如下

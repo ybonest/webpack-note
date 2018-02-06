@@ -1,4 +1,4 @@
-#### 实例一 webpack全局安装使用
+#### webpack全局安装使用
 + [实例链接](https://github.com/ybonest/webpack-note/tree/master/webpack/example1)
 
 本例只是webpack基础用法，使用命令转换index.js文件

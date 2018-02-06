@@ -1,4 +1,4 @@
-#### 实例二 使用webpack.config.js配置文件
+#### 使用webpack.config.js配置文件
 + [实例链接](https://github.com/ybonest/webpack-note/tree/master/webpack/example2)
 
 本例是实例一的基础上增加webpack.config.js文件配置，在webpack.config.js文件中配置了入口文件和出口文件，这样就可以只用在命令行输入`webpack`命令，生成对应的文件。
