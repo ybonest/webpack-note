@@ -96,9 +96,6 @@
   + 开发中css样式可能引入了背景图片，但是由于经过`webpack-dev-server`和`html-webpack-plugin`的作用后，项目开发中所有文件实际上都是托管于内存之中，这个时候就有可能导致一些路径问题，因此此处引入`url-loader`和`file-loader`来处理路径问题
 
   + [url-loader官方地址](https://webpack.js.org/loaders/url-loader/)
-  
-  + url-loader会将文件编译为base64的格式
-  + file-loader
 
   + 使用步骤
     - 首先安装，执行命令：`npm i url-loader file-loader -D`
