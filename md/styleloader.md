@@ -5,7 +5,7 @@
   + loader 可以将文件从不同的语言（如 TypeScript）转换为 JavaScript，或将内联图像转换为 data URL。
   + loader 甚至允许你直接在 JavaScript 模块中 import CSS文件
 
-##### 转换css文件,css文件依赖`style-loader`和`css-loader`两个loader
+##### 1.转换css文件,css文件依赖`style-loader`和`css-loader`两个loader
   + 创建css样式文件，并在要打包的js文件中引入-->`import './css/a.css'`
   + 安装style-loader ---> `npm i style-loader -D`
   + 安装css-loader --->   `npm i css-loader -D`
@@ -32,7 +32,7 @@
   }
   ```
 
-##### 转换scss文件,scss依赖`style-loader/css-loader/sass-loader/node-sass`
+##### 2.转换scss文件,scss依赖`style-loader/css-loader/sass-loader/node-sass`
   + 创建scss样式文件，并在要打包的js文件中引入，-->`import './css/b.scss'` 
   + 安装依赖loader
     - style-loader 执行命令 `npm i style-loader -D`
@@ -62,7 +62,7 @@
   }
   ```
 
-##### 转换less文件,less依赖`style-loader/css-loaderless-loader/less`
+##### 3.转换less文件,less依赖`style-loader/css-loaderless-loader/less`
   + 创建less样式文件，并在要打包的js文件中引入，本例中是在index.js中引入的css-->`import './css/b.scss'`
   + 安装依赖loader
     - style-loader 执行命令 `npm i style-loader -D`
@@ -92,7 +92,7 @@
   }
   ```
 
-##### 处理路径问题
+##### 4.处理路径问题
   + 开发中css样式可能引入了背景图片，但是由于经过`webpack-dev-server`和`html-webpack-plugin`的作用后，项目开发中所有文件实际上都是托管于内存之中，这个时候就有可能导致一些路径问题，因此此处引入`url-loader`和`file-loader`来处理路径问题
   
   + 使用步骤
