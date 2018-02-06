@@ -94,10 +94,18 @@
 
 ##### 4.处理路径问题
   + 开发中css样式可能引入了背景图片，但是由于经过`webpack-dev-server`和`html-webpack-plugin`的作用后，项目开发中所有文件实际上都是托管于内存之中，这个时候就有可能导致一些路径问题，因此此处引入`url-loader`和`file-loader`来处理路径问题
+
+  + [url-loader官方地址](https://webpack.js.org/loaders/url-loader/)
   
+  + url-loader会将文件编译为base64的格式
+  + file-loader
+
   + 使用步骤
     - 首先安装，执行命令：`npm i url-loader file-loader -D`
     - 在webpack.config.js中配置rules
+    - url-loader会将文件编译为base64的编码
+    - 通过url-loader和file-loader后文件会以hash编码重新命名，我们重新用`name`重新指定文件名称,配置如下
+      `{test:/\.jpg|png|gif|bmp$/,use:'url-loader?limit=5948&name=[name].[ext]'}`
   
 具体配置如下
 
@@ -117,14 +125,18 @@ module.exports = {
   module:{  //配置第三方loader模块
     rules:[ 
       {test:/\.css$/,use:['style-loader','css-loader']},  //配置css文件loader   
+      
       // {test:/\.jpg|png|gif|bmp$/,use:'url-loader'}  
+
       //默认情况下使用url-loader将把图片转为base64格式的图片，如果不想改变图片格式，可以下载file-loader，
       //增加limit限制,当limit限制小于图片大小时(右键图片，属性，查看图片大小---注意：图片大小指的是字节数)，
       //图片会以原本格式展现
       // {test:/\.jpg|png|gif|bmp$/,use:'url-loader?limit=5948'}  
+
       //经过以上两步后，图片正常显示，并且保持了原本格式，但是图片名称被改成了hash值，如果想保持图片原有名称
       //可以增加name限制 ---name=[name].[ext]代表原有的图片名称
       // {test:/\.jpg|png|gif|bmp$/,use:'url-loader?limit=5948&name=[name].[ext]'}
+
       //同时你也可以以hash值+原本名字配合使用 
       {test:/\.jpg|png|gif|bmp$/,use:'url-loader?limit=5948&name=[hash:8]-[name].[ext]'}
     ]
@@ -132,7 +144,7 @@ module.exports = {
 }
 ```
 
-实例代码展示
+实例代码块展示以及[链接](https://github.com/ybonest/webpack-note/tree/master/webpack/example4)
 + package.json中的开发依赖
 
 ```
