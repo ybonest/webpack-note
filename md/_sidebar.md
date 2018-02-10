@@ -5,3 +5,4 @@
 - [html-webpack-plugin简单使用](/md/html-webpack-plugin.md)
 - [css/less/sass编译以及路径问题](/md/styleloader.md)
 - [使用babel处理JS高级语法](/md/babel.md)
+- [基于webpack-vue-bootstrap的简单实例](/md/webpackexample.md)
