@@ -34,7 +34,8 @@
 
 #### 压缩html页面
 + 项目中我们曾引进`html-webpack-plugin`插件，压缩html页面文件也是基于这个插件的
-下面是`webpack.pub.config.js`文件配置
+
++ 下面是`webpack.pub.config.js`文件配置
 ```
 plugins: [  //配置webpack使用的插件
     new HtmlWebpackPlugin({
@@ -58,30 +59,31 @@ plugins: [  //配置webpack使用的插件
   - 安装extract-text-webpack-plugin插件:`npm i extract-text-webpack-plugin -D`，并引入：`const ExtractTextPlugin = require("extract-text-webpack-plugin");`
   - 配置plugins,增加如下代码：`new ExtractTextPlugin("css/styles.css")`
   - 配置rules规则
-  ```
-  {
-    test: /\.css$/, use: ExtractTextPlugin.extract({
-      fallback: "style-loader",
-      use: "css-loader"
-    })
-  },
-  ```
 
-  除却css文件外，sass和less配置类似，如下:
-  ```
-  {
-    test: /\.less$/, use: ExtractTextPlugin.extract({
-      fallback: 'style-loader',
-      use: ['css-loader', 'less-loader']
-    })
-  },
-  {
-    test: /\.scss$/, use: ExtractTextPlugin.extract({
-      fallback: 'style-loader',
-      use: ['css-loader', 'sass-loader']
-    })
-  }
-  ```
+```
+{
+  test: /\.css$/, use: ExtractTextPlugin.extract({
+    fallback: "style-loader",
+    use: "css-loader"
+  })
+},
+```
+
+除却css文件外，sass和less配置类似，如下:
+```
+{
+  test: /\.less$/, use: ExtractTextPlugin.extract({
+    fallback: 'style-loader',
+    use: ['css-loader', 'less-loader']
+  })
+},
+{
+  test: /\.scss$/, use: ExtractTextPlugin.extract({
+    fallback: 'style-loader',
+    use: ['css-loader', 'sass-loader']
+  })
+}
+```
 
 **下面是详细配置**
 ```
