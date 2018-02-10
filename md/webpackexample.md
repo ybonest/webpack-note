@@ -1,6 +1,6 @@
 + 前几节已经对webpack的基本使用写过一些例子，本节扩展了一下，结合vue/webpack/bootstrap/echarts/jquery写了一个简单的响应式例子，效果如下图
 
-![img](/media/imag.jpg)
+![img](/media/Imag.jpg)
 
 #### 项目搭建步骤
 1. 安装webpack，执行命令：`npm i webpack -D`
