@@ -182,6 +182,7 @@ module.exports = {  //node函数，用于将对象暴露给外界
 
 #### 5、抽离第三方包(js)
 + 修改entry入口文件
+
 ```
 entry: {
   app: path.join(__dirname, './src/main.js'), //指定入口js文件
@@ -207,24 +208,27 @@ new webpack.optimize.CommonsChunkPlugin({
 + 步骤
   - 运行`npm install --save-dev babel-plugin-syntax-dynamic-import` 安装到开发依赖
   - 配置`.babelrc`文件，在`plugins`节点下新增加如下代码：
-  ```
-  {
-    "plugins": ["syntax-dynamic-import"]
-  }
+
+```
+{
+  "plugins": ["syntax-dynamic-import"]
+}
   ```
 
   - 把需要懒加载的路由组件分组，修改成如下引用方式：
-  ```
-  const bootply = () => import(/* webpackChunkName: "news" */ './component/subcomponent/Bootply.vue')
-  const facilin = () => import(/* webpackChunkName: "news" */ './component/subcomponent/facilin.vue')
-  const eros = () => import(/* webpackChunkName: "news" */ './component/subcomponent/eros.vue')
-  ```
+
+```
+const bootply = () => import(/* webpackChunkName: "news" */ './component/subcomponent/Bootply.vue')
+const facilin = () => import(/* webpackChunkName: "news" */ './component/subcomponent/facilin.vue')
+const eros = () => import(/* webpackChunkName: "news" */ './component/subcomponent/eros.vue')
+```
 
   - 打开`webpack.pub.config.js`，在 `output` 节点中，新增`chunkFilename`节点，为懒加载的路由模块自定义文件名
-  ```
-  output: {
-    path: path.join(__dirname, './dist'), // 指定输出的文件夹
-    chunkFilename: 'js/[chunkhash:6]-[name].js',
-    filename: 'js/bundle.js'
-  }
-  ```
+ 
+```
+output: {
+  path: path.join(__dirname, './dist'), // 指定输出的文件夹
+  chunkFilename: 'js/[chunkhash:6]-[name].js',
+  filename: 'js/bundle.js'
+}
+```
