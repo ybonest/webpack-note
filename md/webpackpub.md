@@ -3,6 +3,7 @@
 ### 简单打包
 + 在项目中我们已经配置好了webpack.config.js文件，此时只要执行`webpack`命令即可打包成功
 + 或者在package.json文件的scripts节点中配置如下配置：
+
 ```
  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -36,7 +37,8 @@
 + 项目中我们曾引进`html-webpack-plugin`插件，压缩html页面文件也是基于这个插件的
 
 + 下面是`webpack.pub.config.js`文件配置
-```
+
+```javascript
 plugins: [  //配置webpack使用的插件
     new HtmlWebpackPlugin({
       template: path.join(__dirname, './src/index.html'),
@@ -60,7 +62,7 @@ plugins: [  //配置webpack使用的插件
   - 配置plugins,增加如下代码：`new ExtractTextPlugin("css/styles.css")`
   - 配置rules规则
 
-```
+```javascript
 {
   test: /\.css$/, use: ExtractTextPlugin.extract({
     fallback: "style-loader",
@@ -70,7 +72,8 @@ plugins: [  //配置webpack使用的插件
 ```
 
 除却css文件外，sass和less配置类似，如下:
-```
+
+```javascript
 {
   test: /\.less$/, use: ExtractTextPlugin.extract({
     fallback: 'style-loader',
@@ -86,7 +89,8 @@ plugins: [  //配置webpack使用的插件
 ```
 
 **下面是详细配置**
-```
+
+```javascript
 const path = require("path") //node内置path模块，用于拼接路径
 
 //用于将html文件托管于内存中，与webpack-dev-server配合使用，达到js和index实时编译的目的
@@ -183,7 +187,7 @@ module.exports = {  //node函数，用于将对象暴露给外界
 #### 5、抽离第三方包(js)
 + 修改entry入口文件
 
-```
+```javascript
 entry: {
   app: path.join(__dirname, './src/main.js'), //指定入口js文件
   vendors1:["vue","vuex","vue-router"],  //指定分离打包的js，放置在同一数组的会被打包到同一js文件
@@ -195,7 +199,8 @@ entry: {
 ```
 
 + 配置`plugins`
-```
+
+```javascript
 new webpack.optimize.CommonsChunkPlugin({
   name:["vendors1","vendors2","vendors3","vendors5"],  //对应入口文件的配置
   filename:"js/[chunkhash:6]-vendors.js"
@@ -209,7 +214,7 @@ new webpack.optimize.CommonsChunkPlugin({
   - 运行`npm install --save-dev babel-plugin-syntax-dynamic-import` 安装到开发依赖
   - 配置`.babelrc`文件，在`plugins`节点下新增加如下代码：
 
-```
+```javascript
 {
   "plugins": ["syntax-dynamic-import"]
 }
@@ -217,7 +222,7 @@ new webpack.optimize.CommonsChunkPlugin({
 
   - 把需要懒加载的路由组件分组，修改成如下引用方式：
 
-```
+```javascript
 const bootply = () => import(/* webpackChunkName: "news" */ './component/subcomponent/Bootply.vue')
 const facilin = () => import(/* webpackChunkName: "news" */ './component/subcomponent/facilin.vue')
 const eros = () => import(/* webpackChunkName: "news" */ './component/subcomponent/eros.vue')
@@ -225,7 +230,7 @@ const eros = () => import(/* webpackChunkName: "news" */ './component/subcompone
 
   - 打开`webpack.pub.config.js`，在 `output` 节点中，新增`chunkFilename`节点，为懒加载的路由模块自定义文件名
  
-```
+```javascript
 output: {
   path: path.join(__dirname, './dist'), // 指定输出的文件夹
   chunkFilename: 'js/[chunkhash:6]-[name].js',
