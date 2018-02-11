@@ -15,7 +15,7 @@
     + css以及sass编译相关loader和依赖
     + 配置对.vue结尾的文件解析loader:`vue-loader`和`vue-template-compiler`
     + 引入jQuery 使用expose-loader 配置在webpack.config.js文件中配置全局对象
-      ```
+      ```javascript
       module: {
         rules: [
           {
@@ -39,7 +39,7 @@
 以下是webpack配置代码，实例详细代码请参考此处[链接](https://github.com/ybonest/webpack-note/tree/master/webpack/webpackProject)
 + **例子webpack.config.js文件配置如下**
 
-```
+```javascript
 const path = require("path") //node内置path模块，用于拼接路径
 
 
