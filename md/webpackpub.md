@@ -1,4 +1,4 @@
-该章节是在基于上章节的项目基础上进行的打包发布
+该章节是在基于上章节的项目基础上进行的打包发布，打包完成的项目文件地址[链接](https://github.com/ybonest/webpack-note/tree/master/webpack/webpackProjectPub)
 
 ### 简单打包
 + 在项目中我们已经配置好了webpack.config.js文件，此时只要执行`webpack`命令即可打包成功
