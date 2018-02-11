@@ -168,3 +168,10 @@ module.exports = {  //node函数，用于将对象暴露给外界
   }
 }
 ```
+
+#### 每次发布自动删除dist目录
++ 依赖插件`clean-webpack-plugin`
++ 步骤
+  - 安装`clean-webpack-plugin`插件：`npm i clean-webpack-plugin -D`
+  - 引入插件:`const CleanPlugin = require("clean-webpack-plugin")`
+  - 配置plugins：`new CleanPlugin(["dist"])`
